@@ -21,3 +21,24 @@ public int[] twoSum(int[] numbers, int target) {
 }
 ```
 
+## 两数平方和
+[633. Sum of Square Numbers (Easy)](https://leetcode.com/problems/sum-of-square-numbers/submissions/)
+
+
+```java
+public boolean judgeSquareSum(int c) {
+    int i = 0, j = (int) Math.sqrt(c);
+    while (i <= j) {
+        int powSum = i * i + j * j;
+        if (powSum == c) {
+            return true;
+        } else if (powSum > c) {
+            j--;
+        } else {
+            i++;
+        }
+    }
+    return false;
+}
+```
+
