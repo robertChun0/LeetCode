@@ -132,3 +132,31 @@ public boolean hasCycle(ListNode head) {
     return false;
 }
 ```
+
+
+## 找到第 k 大的元素
+[215. Kth Largest Element in an Array (Medium)](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
+
+排序 ：时间复杂度 O(NlogN)，空间复杂度 O(1)
+
+```java
+public int findKthLargest(int[] nums, int k) {
+    Arrays.sort(nums);
+    return nums[nums.length - k];
+}
+```
+
+
+堆排序 ：时间复杂度 O(NlogK)，空间复杂度 O(K)。
+
+```java
+public int findKthLargest(int[] nums, int k) {
+    PriorityQueue<Integer> pq = new PriorityQueue<>(); // 小顶堆
+    for (int val : nums) {
+        pq.add(val);
+        if (pq.size() > k)  // 维护堆的大小为 K
+            pq.poll();
+    }
+    return pq.peek();
+}
+```
